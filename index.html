@@ -27,21 +27,20 @@
     </div>
 
     <script type="text/javascript" src="http://www.teaching-materials.org/common/youtube.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script>
-    var linkArray = document.querySelectorAll("#video-links a");
-  //  console.log(linkArray);
-    for(var i=0; i<linkArray.length; i++){
-        var vidLink = linkArray[i];
-          var linkUrl = vidLink.getAttribute('href');
-          var thumbUrl = youtube.generateThumbnailUrl(linkUrl);
-          var thumbImg = document.createElement('img');
-          thumbImg.setAttribute('src', thumbUrl);
-          vidLink.appendChild(thumbImg);
+        var linkArray = $('a');
+        var i = 0;
+          for(i=0; i<linkArray.length; i++){
+          var $vidLink = $(linkArray[i]);
+           var linkUrl = $vidLink.attr('href');
+           var thumbUrl = youtube.generateThumbnailUrl(linkUrl);
+           var $thumbImg = $('<img alt="" />');
 
-           console.log(vidLink);
-
-           }
-
-    </script>
+           $thumbImg.attr('src', thumbUrl);
+           $vidLink.append($thumbImg);
+            console.log($vidLink);
+            }
+      </script>
   </body>
 </html>
